@@ -42,7 +42,7 @@ switch($page){
         
     case "patient":
         if(!isset($_SESSION['user_id'])) {
-            header('Location: /auth/login');
+            header('Location: /index.php?page=auth/login');
             break;
         }
         
@@ -76,7 +76,7 @@ switch($page){
         
     case "doctor":
         if(!isset($_SESSION['user_id'])) {
-            header('Location: /auth/login');
+            header('Location: /index.php?page=auth/login');
             break;
         }
         

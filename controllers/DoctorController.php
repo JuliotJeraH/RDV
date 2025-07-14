@@ -14,7 +14,7 @@ class DoctorController {
 
     public function dashboard() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /auth/login');
+            header('Location: /index.php?page=auth/login');
             return;
         }
 
@@ -31,7 +31,7 @@ class DoctorController {
 
     public function patients() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /auth/login');
+            header('Location: /index.php?page=auth/login');
             return;
         }
 
@@ -65,7 +65,7 @@ class DoctorController {
 
     public function appointments() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /auth/login');
+            header('Location: /index.php?page=auth/login');
             return;
         }
 
@@ -82,7 +82,7 @@ class DoctorController {
 
     public function respondToAppointment() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /auth/login');
+            header('Location: /index.php?page=auth/login');
             return;
         }
 
