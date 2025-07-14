@@ -60,7 +60,7 @@ class DoctorController {
             $patients = array_unique($patients, SORT_REGULAR);
         }
 
-        require_once '../views/pages/doctor/patients.php';
+        require_once __DIR__ . '/../views/pages/doctor/patients.php';
     }
 
     public function appointments() {
@@ -77,7 +77,7 @@ class DoctorController {
         $doctor = $this->doctorModel->getDoctorByUserId($_SESSION['user_id']);
         $appointments = $this->doctorModel->getAcceptedAppointments($doctor['id_medecin']);
 
-        require_once '../views/pages/doctor/appointments.php';
+        require_once __DIR__ . '/../views/pages/doctor/appointments.php';
     }
 
     public function respondToAppointment() {

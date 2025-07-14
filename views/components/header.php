@@ -10,7 +10,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="/">App Médicale</a>
+            <a class="navbar-brand" href="">App Médicale</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -19,17 +19,17 @@
                     <ul class="navbar-nav me-auto">
                         <?php if($_SESSION['user_role'] == 'patient'): ?>
                             <li class="nav-item">
-                                <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'doctors') !== false ? 'active' : '' ?>" href="/patient/doctors">Médecins</a>
+                                <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'doctors') !== false ? 'active' : '' ?>" href="index.php?page=patient/doctors">Médecins</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'appointments') !== false ? 'active' : '' ?>" href="/patient/appointments">Rendez-vous</a>
+                                <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'appointments') !== false ? 'active' : '' ?>" href="index.php?page=patient/appointments">Rendez-vous</a>
                             </li>
                         <?php else: ?>
                             <li class="nav-item">
-                                <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'patients') !== false ? 'active' : '' ?>" href="/doctor/patients">Patients</a>
+                                <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'patients') !== false ? 'active' : '' ?>" href="index.php?page=doctor/patients">Patients</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'appointments') !== false ? 'active' : '' ?>" href="/doctor/appointments">Rendez-vous</a>
+                                <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'appointments') !== false ? 'active' : '' ?>" href="index.php?page=doctor/appointments">Rendez-vous</a>
                             </li>
                         <?php endif; ?>
                     </ul>

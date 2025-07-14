@@ -83,7 +83,7 @@ class AuthController {
                 }
             } else {
                 $error = "Email ou mot de passe incorrect";
-                require_once '../views/pages/auth/login.php';
+                require_once __DIR__ . '/../views/pages/auth/login.php';
             }
         } else {
             require_once __DIR__ . '/../views/pages/auth/login.php';

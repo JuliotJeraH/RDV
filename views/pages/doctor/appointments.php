@@ -1,4 +1,4 @@
-<?php require_once('../../components/header.php'); ?>
+<?php require_once __DIR__ . '/../../components/header.php'; ?>
 
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -39,4 +39,4 @@
     <?php endif; ?>
 </div>
 
-<?php require_once('../../components/footer.php'); ?>
+<?php require_once __DIR__ . '/../../components/footer.php'; ?>

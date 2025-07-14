@@ -67,7 +67,8 @@ class PatientController {
         $patient = $this->patientModel->getPatientByUserId($_SESSION['user_id']);
         $appointments = $this->patientModel->getPatientAppointments($patient['id_patient']);
 
-        require_once '../views/pages/patient/appointments.php';
+        require_once __DIR__ . '/../views/pages/patient/appointments.php';
+
     }
 
     public function requestAppointment() {

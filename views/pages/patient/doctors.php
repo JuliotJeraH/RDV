@@ -46,7 +46,7 @@
                                 <h5 class="modal-title">Demande de rendez-vous avec Dr. <?= htmlspecialchars($doctor['nom']) ?></h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
-                            <form method="post" action="/patient/request-appointment">
+                            <form method="post" action="index.php?page=patient/request-appointment">
                                 <div class="modal-body">
                                     <input type="hidden" name="id_medecin" value="<?= $doctor['id_medecin'] ?>">
                                     <div class="mb-3">
