@@ -1,4 +1,5 @@
-<?php require_once('../components/header.php'); ?>
+<?php require_once __DIR__ . '/../../components/header.php'; ?>
+
 
 <div class="row justify-content-center">
     <div class="col-md-6 col-lg-4">
@@ -32,4 +33,4 @@
     </div>
 </div>
 
-<?php require_once('../components/footer.php'); ?>
+<?php require_once __DIR__ . '/../../components/footer.php'; ?>

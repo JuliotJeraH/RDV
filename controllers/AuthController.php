@@ -59,7 +59,7 @@ class AuthController {
                 require_once '../views/pages/auth/register.php';
             }
         } else {
-            require_once '../views/pages/auth/register.php';
+            require_once __DIR__ . '/../views/pages/auth/register.php';
         }
     }
 
@@ -86,7 +86,8 @@ class AuthController {
                 require_once '../views/pages/auth/login.php';
             }
         } else {
-            require_once '../views/pages/auth/login.php';
+            require_once __DIR__ . '/../views/pages/auth/login.php';
+
         }
     }
 

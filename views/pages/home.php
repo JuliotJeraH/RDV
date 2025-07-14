@@ -7,8 +7,9 @@
         
         <?php if(!isset($_SESSION['user_id'])): ?>
             <div class="mt-4">
-                <a href="/auth/register" class="btn btn-primary btn-lg mx-2">S'inscrire</a>
-                <a href="/auth/login" class="btn btn-outline-primary btn-lg mx-2">Se connecter</a>
+                <!-- Après (solution) -->
+<a href="index.php?page=auth/register" class="btn btn-primary btn-lg mx-2">S'inscrire</a>
+<a href="index.php?page=auth/login" class="btn btn-outline-primary btn-lg mx-2">Se connecter</a>
             </div>
         <?php else: ?>
             <div class="mt-4">

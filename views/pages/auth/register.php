@@ -1,4 +1,4 @@
-<?php require_once('../components/header.php'); ?>
+<?php require_once __DIR__ . '/../../components/header.php'; ?>
 
 <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6">
@@ -79,7 +79,7 @@
                 </form>
                 
                 <div class="mt-3 text-center">
-                    <p>Déjà inscrit ? <a href="/auth/login">Se connecter</a></p>
+                    <p>Déjà inscrit ? <a href="index.php?page=auth/login">Se connecter</a></p>
                 </div>
             </div>
         </div>
@@ -111,4 +111,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php require_once('../components/footer.php'); ?>
+<?php require_once __DIR__ . '/../../components/footer.php'; ?>
