@@ -1,5 +1,6 @@
 <?php
 // models/User.php
+require_once 'Database.php';
 class User {
     private $db;
 

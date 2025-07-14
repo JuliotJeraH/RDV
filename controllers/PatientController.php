@@ -1,7 +1,7 @@
 <?php
 // controllers/PatientController.php
-require_once '../models/Patient.php';
-require_once '../models/User.php';
+require_once __DIR__ . '/../models/Patient.php';
+require_once __DIR__ . '/../models/User.php';
 
 class PatientController {
     private $patientModel;
@@ -13,7 +13,7 @@ class PatientController {
     }
 
     public function dashboard() {
-        if (!isset($_SESSION['user_id']) {
+        if (!isset($_SESSION['user_id'])) {
             header('Location: /auth/login');
             return;
         }
@@ -30,7 +30,7 @@ class PatientController {
     }
 
     public function doctors() {
-        if (!isset($_SESSION['user_id']) {
+        if (!isset($_SESSION['user_id'])) {
             header('Location: /auth/login');
             return;
         }
@@ -71,7 +71,7 @@ class PatientController {
     }
 
     public function requestAppointment() {
-        if (!isset($_SESSION['user_id']) {
+        if (!isset($_SESSION['user_id'])) {
             header('Location: /auth/login');
             return;
         }

@@ -1,8 +1,8 @@
 <?php
 // controllers/AuthController.php
-require_once '../models/User.php';
-require_once '../models/Patient.php';
-require_once '../models/Doctor.php';
+require_once __DIR__ . '/../models/User.php';
+require_once __DIR__ . '/../models/Patient.php';
+require_once __DIR__ . '/../models/Doctor.php';
 
 class AuthController {
     private $userModel;

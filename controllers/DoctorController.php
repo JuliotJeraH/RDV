@@ -1,7 +1,7 @@
 <?php
 // controllers/DoctorController.php
-require_once '../models/Doctor.php';
-require_once '../models/User.php';
+require_once __DIR__ . '/../models/Doctor.php';
+require_once __DIR__ . '/../models/User.php';
 
 class DoctorController {
     private $doctorModel;
