@@ -41,10 +41,10 @@
                 <?php else: ?>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'login') !== false ? 'active' : '' ?>" href="/auth/login">Connexion</a>
+                            <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'login') !== false ? 'active' : '' ?>" href="index.php?page=auth/login">Connexion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'register') !== false ? 'active' : '' ?>" href="/auth/register">Inscription</a>
+                            <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'register') !== false ? 'active' : '' ?>" href="index.php?page=auth/register">Inscription</a>
                         </li>
                     </ul>
                 <?php endif; ?>

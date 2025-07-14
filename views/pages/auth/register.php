@@ -10,7 +10,7 @@
                     <div class="alert alert-danger"><?= $error ?></div>
                 <?php endif; ?>
                 
-                <form action="/auth/register" method="post">
+                <form action="index.php?page=auth/register" method="post">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">Email</label>
