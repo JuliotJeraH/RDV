@@ -50,9 +50,9 @@ class AuthController {
 
                 // Redirection selon le rôle
                 if ($user['role'] == 'patient') {
-                    header('Location: /patient/doctors');
+                    header('Location: /index.php?page=patient/doctors');
                 } else {
-                    header('Location: /doctor/patients');
+                    header('Location: /index.php?page=doctor/patients');
                 }
             } else {
                 $error = "Une erreur s'est produite lors de l'inscription";
@@ -77,9 +77,9 @@ class AuthController {
 
                 // Redirection selon le rôle
                 if ($user['role'] == 'patient') {
-                    header('Location: /patient/doctors');
+                    header('Location: /index.php?page=patient/doctors');
                 } else {
-                    header('Location: /doctor/patients');
+                    header('Location: /index.php?page=doctor/patients');
                 }
             } else {
                 $error = "Email ou mot de passe incorrect";
@@ -94,7 +94,7 @@ class AuthController {
     public function logout() {
         session_unset();
         session_destroy();
-        header('Location: /');
+        header('Location: home');
     }
 }
 ?>

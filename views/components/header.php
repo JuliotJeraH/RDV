@@ -35,7 +35,7 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/auth/logout">Déconnexion</a>
+                            <a class="nav-link" href="index.php?page=auth/logout">Déconnexion</a>
                         </li>
                     </ul>
                 <?php else: ?>
