@@ -42,7 +42,7 @@ switch($page){
         
     case "patient":
         if(!isset($_SESSION['user_id'])) {
-            header('Location: /index.php?page=auth/login');
+            header('Location: index.php?page=auth/login');
             break;
         }
         
@@ -65,7 +65,7 @@ switch($page){
                 if($id_rendez_vous){
                     $patientController->cancelAppointment($id_rendez_vous);
                 } else {
-                    header('Location: /patient/appointments');
+                    header('Location: patient/appointments');
                 }
                 break;
             default:
@@ -76,7 +76,7 @@ switch($page){
         
     case "doctor":
         if(!isset($_SESSION['user_id'])) {
-            header('Location: /index.php?page=auth/login');
+            header('Location: index.php?page=auth/login');
             break;
         }
         

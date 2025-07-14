@@ -14,7 +14,7 @@ class PatientController {
 
     public function dashboard() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /index.php?page=auth/login');
+            header('Location: index.php?page=auth/login');
             return;
         }
 
@@ -31,7 +31,7 @@ class PatientController {
 
     public function doctors() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /index.php?page=auth/login');
+            header('Location: index.php?page=auth/login');
             return;
         }
 
@@ -50,12 +50,12 @@ class PatientController {
             $doctors = $this->patientModel->getAllDoctors();
         }
 
-        require_once '../views/pages/patient/doctors.php';
+        require_once __DIR__ . '/../views/pages/patient/doctors.php';
     }
 
     public function appointments() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /index.php?page=auth/login');
+            header('Location: index.php?page=auth/login');
             return;
         }
 
@@ -72,7 +72,7 @@ class PatientController {
 
     public function requestAppointment() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /index.php?page=auth/login');
+            header('Location: index.php?page=auth/login');
             return;
         }
 
@@ -87,20 +87,20 @@ class PatientController {
             $patient = $this->patientModel->getPatientByUserId($_SESSION['user_id']);
 
             if ($this->patientModel->requestAppointment($patient['id_patient'], $id_medecin, $motif)) {
-                header('Location: /patient/appointments');
+                header('Location: patient/appointments');
             } else {
                 $error = "Erreur lors de la demande de rendez-vous";
                 $doctors = $this->patientModel->getAllDoctors();
                 require_once '../views/pages/patient/doctors.php';
             }
         } else {
-            header('Location: /patient/doctors');
+            header('Location: patient/doctors');
         }
     }
 
     public function cancelAppointment($id_rendez_vous) {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /index.php?page=auth/login');
+            header('Location: index.php?page=auth/login');
             return;
         }
 
@@ -110,7 +110,7 @@ class PatientController {
         }
 
         if ($this->patientModel->cancelAppointment($id_rendez_vous)) {
-            header('Location: /patient/appointments');
+            header('Location: patient/appointments');
         } else {
             $error = "Erreur lors de l'annulation du rendez-vous";
             $patient = $this->patientModel->getPatientByUserId($_SESSION['user_id']);

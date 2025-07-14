@@ -14,7 +14,7 @@ class DoctorController {
 
     public function dashboard() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /index.php?page=auth/login');
+            header('Location: index.php?page=auth/login');
             return;
         }
 
@@ -31,7 +31,7 @@ class DoctorController {
 
     public function patients() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /index.php?page=auth/login');
+            header('Location: index.php?page=auth/login');
             return;
         }
 
@@ -65,7 +65,7 @@ class DoctorController {
 
     public function appointments() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /index.php?page=auth/login');
+            header('Location: index.php?page=auth/login');
             return;
         }
 
@@ -82,7 +82,7 @@ class DoctorController {
 
     public function respondToAppointment() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /index.php?page=auth/login');
+            header('Location: index.php?page=auth/login');
             return;
         }
 
@@ -97,7 +97,7 @@ class DoctorController {
             $date_rendez_vous = isset($_POST['date_rendez_vous']) ? $_POST['date_rendez_vous'] : null;
 
             if ($this->doctorModel->respondToAppointment($id_rendez_vous, $response, $date_rendez_vous)) {
-                header('Location: /doctor/patients');
+                header('Location: doctor/patients');
             } else {
                 $error = "Erreur lors du traitement de la demande";
                 $doctor = $this->doctorModel->getDoctorByUserId($_SESSION['user_id']);
@@ -105,7 +105,7 @@ class DoctorController {
                 require_once '../views/pages/doctor/patients.php';
             }
         } else {
-            header('Location: /doctor/patients');
+            header('Location: doctor/patients');
         }
     }
 }
