@@ -14,12 +14,12 @@ class PatientController {
 
     public function dashboard() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /auth/login');
+            header('Location: /index.php?page=auth/login');
             return;
         }
 
         if ($_SESSION['user_role'] != 'patient') {
-            header('Location: /');
+            header('Location: home');
             return;
         }
 
