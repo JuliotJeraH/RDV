@@ -19,7 +19,7 @@ class DoctorController {
         }
 
         if ($_SESSION['user_role'] != 'medecin') {
-            header('Location: /');
+            header('Location: home');
             return;
         }
 
@@ -36,7 +36,7 @@ class DoctorController {
         }
 
         if ($_SESSION['user_role'] != 'medecin') {
-            header('Location: /');
+            header('Location: home');
             return;
         }
 
@@ -70,7 +70,7 @@ class DoctorController {
         }
 
         if ($_SESSION['user_role'] != 'medecin') {
-            header('Location: /');
+            header('Location: home');
             return;
         }
 
@@ -87,7 +87,7 @@ class DoctorController {
         }
 
         if ($_SESSION['user_role'] != 'medecin') {
-            header('Location: /');
+            header('Location: home');
             return;
         }
 
