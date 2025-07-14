@@ -1,55 +1,107 @@
 <?php
+// index.php
 session_start();
-require 'controllers/AuthController.php';
-require 'controllers/PatientController.php';
-require 'controllers/RendezVousController.php';
 
-$action = $_GET['action'] ?? 'dashboard'; // Page d'accueil par défaut
+require_once("controllers/AuthController.php");
+require_once("controllers/PatientController.php");
+require_once("controllers/DoctorController.php");
 
-// Ajoutez cette route
-    
+if(empty($_GET["page"])){
+    $page = "home";
+} else {
+    $path = explode("/", filter_var($_GET["page"], FILTER_SANITIZE_URL));
+    $page = $path[0];
+}
 
-switch ($action) {
-    // Authentification
-    case 'login':
-        (new AuthController())->login();
-        break;
-    case 'register':
-        (new AuthController())->register();
-        break;
+$authController = new AuthController();
+$patientController = new PatientController();
+$doctorController = new DoctorController();
 
-    case 'dashboard':
-        require 'views/pages/dashboard.php';
+switch($page){
+    case "home":
+        require_once("views/pages/home.php");
         break;
-
-    case 'logout':
-        session_destroy();
-        header('Location: ?action=login');
+        
+    case "auth":
+        $action = $path[1] ?? 'login';
+        switch($action){
+            case "login":
+                $authController->login();
+                break;
+            case "register":
+                $authController->register();
+                break;
+            case "logout":
+                $authController->logout();
+                break;
+            default:
+                echo "<p>Page d'authentification non trouvée</p>";
+                break;
+        }
         break;
-
-    // Patients
-    case 'patients':
-        (new PatientController())->list();
+        
+    case "patient":
+        if(!isset($_SESSION['user_id']) {
+            header('Location: /auth/login');
+            break;
+        }
+        
+        $action = $path[1] ?? 'doctors';
+        switch($action){
+            case "dashboard":
+                $patientController->dashboard();
+                break;
+            case "doctors":
+                $patientController->doctors();
+                break;
+            case "appointments":
+                $patientController->appointments();
+                break;
+            case "request-appointment":
+                $patientController->requestAppointment();
+                break;
+            case "cancel-appointment":
+                $id_rendez_vous = $path[2] ?? null;
+                if($id_rendez_vous){
+                    $patientController->cancelAppointment($id_rendez_vous);
+                } else {
+                    header('Location: /patient/appointments');
+                }
+                break;
+            default:
+                echo "<p>Page patient non trouvée</p>";
+                break;
+        }
         break;
-    case 'add-patient':
-        (new PatientController())->create();
+        
+    case "doctor":
+        if(!isset($_SESSION['user_id'])) {
+            header('Location: /auth/login');
+            break;
+        }
+        
+        $action = $path[1] ?? 'patients';
+        switch($action){
+            case "dashboard":
+                $doctorController->dashboard();
+                break;
+            case "patients":
+                $doctorController->patients();
+                break;
+            case "appointments":
+                $doctorController->appointments();
+                break;
+            case "respond-appointment":
+                $doctorController->respondToAppointment();
+                break;
+            default:
+                echo "<p>Page docteur non trouvée</p>";
+                break;
+        }
         break;
-
-    case 'edit-patient':
-        (new PatientController())->edit($_GET['id'] ?? null);
-        break;
-
-    // Rendez-vous
-    case 'rendezvous':
-        (new RendezVousController())->list();
-        break;
-    case 'add-rdv':
-        (new RendezVousController())->create();
-        break;
-
-    // Par défaut -> page login
+        
     default:
-        header('Location: ?action=dashboard');
+        echo "<p>Page non trouvée</p>";
         break;
 }
 ?>
