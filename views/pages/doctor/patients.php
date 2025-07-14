@@ -78,7 +78,7 @@
                                                                 <td><?= date('d/m/Y H:i', strtotime($request['date_demande'])) ?></td>
                                                                 <td><?= htmlspecialchars($request['motif']) ?></td>
                                                                 <td>
-                                                                    <form method="post" action="/doctor/respond-appointment" class="d-inline">
+                                                                    <form method="post" action="index.php?page=doctor/respond-appointment" class="d-inline">
                                                                         <input type="hidden" name="id_rendez_vous" value="<?= $request['id_rendez_vous'] ?>">
                                                                         <input type="hidden" name="response" value="accepte">
                                                                         <div class="input-group">
@@ -86,7 +86,7 @@
                                                                             <button type="submit" class="btn btn-sm btn-success">Accepter</button>
                                                                         </div>
                                                                     </form>
-                                                                    <form method="post" action="/doctor/respond-appointment" class="d-inline ms-2">
+                                                                    <form method="post" action="index.php?page=doctor/respond-appointment" class="d-inline ms-2">
                                                                         <input type="hidden" name="id_rendez_vous" value="<?= $request['id_rendez_vous'] ?>">
                                                                         <input type="hidden" name="response" value="refuse">
                                                                         <button type="submit" class="btn btn-sm btn-danger">Refuser</button>

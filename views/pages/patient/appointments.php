@@ -47,7 +47,7 @@
                             </td>
                             <td>
                                 <?php if($appointment['statut'] == 'en_attente' || $appointment['statut'] == 'accepte'): ?>
-                                    <form method="post" action="/patient/cancel-appointment/<?= $appointment['id_rendez_vous'] ?>" class="d-inline">
+                                    <form method="post" action="index.php?page=patient/cancel-appointment/<?= $appointment['id_rendez_vous'] ?>" class="d-inline">
                                         <button type="submit" class="btn btn-sm btn-outline-danger">
                                             <?= $appointment['statut'] == 'accepte' ? 'Annuler' : 'Supprimer' ?>
                                         </button>

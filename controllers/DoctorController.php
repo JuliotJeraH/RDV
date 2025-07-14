@@ -97,7 +97,7 @@ class DoctorController {
             $date_rendez_vous = isset($_POST['date_rendez_vous']) ? $_POST['date_rendez_vous'] : null;
 
             if ($this->doctorModel->respondToAppointment($id_rendez_vous, $response, $date_rendez_vous)) {
-                header('Location: doctor/patients');
+                header('Location: index.php?page=doctor/patients');
             } else {
                 $error = "Erreur lors du traitement de la demande";
                 $doctor = $this->doctorModel->getDoctorByUserId($_SESSION['user_id']);

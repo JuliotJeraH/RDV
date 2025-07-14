@@ -88,7 +88,7 @@ class PatientController {
             $patient = $this->patientModel->getPatientByUserId($_SESSION['user_id']);
 
             if ($this->patientModel->requestAppointment($patient['id_patient'], $id_medecin, $motif)) {
-                header('Location: patient/appointments');
+                header('Location: index.php?page=patient/appointments');
             } else {
                 $error = "Erreur lors de la demande de rendez-vous";
                 $doctors = $this->patientModel->getAllDoctors();
@@ -111,7 +111,7 @@ class PatientController {
         }
 
         if ($this->patientModel->cancelAppointment($id_rendez_vous)) {
-            header('Location: patient/appointments');
+            header('Location: index.php?page=patient/appointments');
         } else {
             $error = "Erreur lors de l'annulation du rendez-vous";
             $patient = $this->patientModel->getPatientByUserId($_SESSION['user_id']);
