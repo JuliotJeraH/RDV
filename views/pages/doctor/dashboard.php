@@ -1,3 +1,5 @@
+<?php require_once __DIR__ . '/../../components/header.php'; ?>
+
 <div class="container">
     <h2>Tableau de Bord Médical</h2>
     <div class="row">
@@ -28,3 +30,5 @@
         </div>
     </div>
 </div>
+
+<?php require_once __DIR__ . '/../../components/header.php'; ?>

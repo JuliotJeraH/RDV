@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/../../components/header.php'; ?>
 <div class="container">
     <h2>Mon Tableau de Bord</h2>
     <div class="row">
@@ -28,3 +29,4 @@
         </div>
     </div>
 </div>
+<?php require_once __DIR__ . '/../../components/footer.php'; ?>

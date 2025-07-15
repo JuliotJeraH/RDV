@@ -26,7 +26,7 @@ class DoctorController {
         $user = $this->userModel->getUserById($_SESSION['user_id']);
         $doctor = $this->doctorModel->getDoctorByUserId($_SESSION['user_id']);
 
-        require_once '../views/pages/doctor/dashboard.php';
+        require_once __DIR__ . '/../views/pages/doctor/dashboard.php';
     }
 
     public function patients() {

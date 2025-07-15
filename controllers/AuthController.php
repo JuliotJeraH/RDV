@@ -26,7 +26,8 @@ class AuthController {
             // Validation simple
             if (empty($email) || empty($password) || empty($nom) || empty($date_naissance)) {
                 $error = "Tous les champs sont obligatoires";
-                require_once '../views/pages/auth/register.php';
+                require_once __DIR__ . '/../views/pages/auth/register.php';
+
                 return;
             }
 
@@ -77,9 +78,9 @@ class AuthController {
 
                 // Redirection selon le rôle
                 if ($user['role'] == 'patient') {
-                    header('Location: index.php?page=patient/doctors');
+                    header('Location: index.php?page=patient/dashboard');
                 } else {
-                    header('Location: index.php?page=doctor/patients');
+                    header('Location: index.php?page=doctor/dashboard');
                 }
             } else {
                 $error = "Email ou mot de passe incorrect";

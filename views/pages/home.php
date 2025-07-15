@@ -14,9 +14,9 @@
         <?php else: ?>
             <div class="mt-4">
                 <?php if($_SESSION['user_role'] == 'patient'): ?>
-                    <a href="/patient/doctors" class="btn btn-primary btn-lg mx-2">Voir les médecins</a>
+                    <a href="index.php?page=patient/doctors" class="btn btn-primary btn-lg mx-2">Voir les médecins</a>
                 <?php else: ?>
-                    <a href="/doctor/patients" class="btn btn-primary btn-lg mx-2">Voir les patients</a>
+                    <a href="index.php?page=doctor/patients" class="btn btn-primary btn-lg mx-2">Voir les patients</a>
                 <?php endif; ?>
             </div>
         <?php endif; ?>

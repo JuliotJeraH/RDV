@@ -7,12 +7,12 @@
     
     <div class="card mb-4">
         <div class="card-body">
-            <form method="get" action="/patient/doctors">
+            <form method="get" action="index.php?page=patient/doctors">
                 <div class="input-group">
                     <input type="text" class="form-control" name="search" placeholder="Rechercher un médecin ou une spécialité..." value="<?= htmlspecialchars($search ?? '') ?>">
                     <button class="btn btn-primary" type="submit">Rechercher</button>
                     <?php if(!empty($search)): ?>
-                        <a href="/patient/doctors" class="btn btn-outline-secondary">Annuler</a>
+                        <a href="index.php?page=patient/doctors" class="btn btn-outline-secondary">Annuler</a>
                     <?php endif; ?>
                 </div>
             </form>
