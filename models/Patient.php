@@ -67,7 +67,8 @@ class Patient {
                   FROM Rendez_vous r 
                   JOIN Medecins m ON r.id_medecin = m.id_medecin 
                   WHERE r.id_patient = :id_patient 
-                  ORDER BY r.date_demande DESC';
+                  AND r.statut = "accepte"
+                  ORDER BY r.date_rendez_vous ASC';
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':id_patient', $id_patient);
         $stmt->execute();

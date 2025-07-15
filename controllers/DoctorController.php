@@ -15,17 +15,21 @@ class DoctorController {
     public function dashboard() {
         if (!isset($_SESSION['user_id'])) {
             header('Location: index.php?page=auth/login');
-            return;
+            exit();
         }
-
+    
         if ($_SESSION['user_role'] != 'medecin') {
-            header('Location: home');
-            return;
+            header('Location: index.php?page=home');
+            exit();
         }
-
+    
         $user = $this->userModel->getUserById($_SESSION['user_id']);
         $doctor = $this->doctorModel->getDoctorByUserId($_SESSION['user_id']);
-
+        $appointments = $this->doctorModel->getAcceptedAppointments($doctor['id_medecin']);
+    
+        // Debug (à retirer en production)
+        error_log(print_r($appointments, true));
+    
         require_once __DIR__ . '/../views/pages/doctor/dashboard.php';
     }
 

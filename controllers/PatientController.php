@@ -15,17 +15,21 @@ class PatientController {
     public function dashboard() {
         if (!isset($_SESSION['user_id'])) {
             header('Location: index.php?page=auth/login');
-            return;
+            exit();
         }
-
+    
         if ($_SESSION['user_role'] != 'patient') {
-            header('Location: home');
-            return;
+            header('Location: index.php?page=home');
+            exit();
         }
-
+    
         $user = $this->userModel->getUserById($_SESSION['user_id']);
         $patient = $this->patientModel->getPatientByUserId($_SESSION['user_id']);
-
+        $appointments = $this->patientModel->getPatientAppointments($patient['id_patient']);
+    
+        // Debug (à retirer en production)
+        error_log(print_r($appointments, true));
+    
         require_once __DIR__ . '/../views/pages/patient/dashboard.php';
     }
 

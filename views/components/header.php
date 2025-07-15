@@ -19,12 +19,16 @@
                     <ul class="navbar-nav me-auto">
                         <?php if($_SESSION['user_role'] == 'patient'): ?>
                             <li class="nav-item">
+                                <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'dashboard') !== false ? 'active' : '' ?>" href="index.php?page=patient/dashboard">Tableau de bord</a>
+                            <li class="nav-item">
                                 <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'doctors') !== false ? 'active' : '' ?>" href="index.php?page=patient/doctors">Médecins</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'appointments') !== false ? 'active' : '' ?>" href="index.php?page=patient/appointments">Rendez-vous</a>
                             </li>
                         <?php else: ?>
+                            <li class="nav-item">
+                                <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'dashboard') !== false ? 'active' : '' ?>" href="index.php?page=doctor/dashboard">Tableau de bord</a>
                             <li class="nav-item">
                                 <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'patients') !== false ? 'active' : '' ?>" href="index.php?page=doctor/patients">Patients</a>
                             </li>
