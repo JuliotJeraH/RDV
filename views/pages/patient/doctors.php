@@ -7,13 +7,14 @@
     
     <div class="card mb-4">
         <div class="card-body">
-            <form method="get" action="index.php?page=patient/doctors">
+            <form method="get">
+                <input type="hidden" name="page" value="patient/doctors">
                 <div class="input-group">
                     <input type="text" class="form-control" name="search" placeholder="Rechercher un médecin ou une spécialité..." value="<?= htmlspecialchars($search ?? '') ?>">
-                    <button class="btn btn-primary" type="submit">Rechercher</button>
-                    <?php if(!empty($search)): ?>
-                        <a href="index.php?page=patient/doctors" class="btn btn-outline-secondary">Annuler</a>
-                    <?php endif; ?>
+                <button class="btn btn-primary" type="submit">Rechercher</button>
+                <?php if(!empty($search)): ?>
+                    <a href="index.php?page=patient/doctors" class="btn btn-outline-secondary">Annuler</a>
+                <?php endif; ?>
                 </div>
             </form>
         </div>
@@ -27,7 +28,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Dr. <?= htmlspecialchars($doctor['nom']) ?></h5>
+                            <h5 class="card-title"><?= htmlspecialchars($doctor['nom']) ?></h5>
                             <p class="card-text text-muted"><?= htmlspecialchars($doctor['specialite']) ?></p>
                         </div>
                         <div class="card-footer bg-transparent">
