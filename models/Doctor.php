@@ -29,6 +29,15 @@ class Doctor {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function getPatientById($id_patient) {
+        $conn = $this->db->connect();
+        $query = 'SELECT * FROM Patients WHERE id_patient = :id_patient';
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':id_patient', $id_patient);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function getPendingAppointments($id_medecin) {
         $conn = $this->db->connect();
         $query = 'SELECT r.*, p.nom as patient_nom 

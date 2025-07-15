@@ -36,14 +36,11 @@
                 <tbody>
                     <?php foreach($patients as $patient): ?>
                         <tr>
-                            <td><?= htmlspecialchars($patient['nom']) ?></td>
-                            <td><?= date('d/m/Y', strtotime($patient['date_naissance'])) ?></td>
-                            <td><?= $patient['groupe_sanguin'] ?? 'Non renseigné' ?></td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#patientAppointmentsModal<?= $patient['id_patient'] ?>">
-                                    Voir les demandes
-                                </button>
-                            </td>
+                        <td><?= htmlspecialchars($patient['nom']) ?></td>
+<td>
+    <?= isset($patient['date_naissance']) ? date('d/m/Y', strtotime($patient['date_naissance'])) : 'Non renseigné' ?>
+</td>
+<td><?= $patient['groupe_sanguin'] ?? 'Non renseigné' ?></td>
                         </tr>
                         
                         <!-- Modal pour les demandes de rendez-vous du patient -->

@@ -38,32 +38,33 @@ class DoctorController {
             header('Location: index.php?page=auth/login');
             return;
         }
-
+    
         if ($_SESSION['user_role'] != 'medecin') {
-            header('Location: home');
+            header('Location: index.php?page=home');
             return;
         }
-
+    
         $doctor = $this->doctorModel->getDoctorByUserId($_SESSION['user_id']);
-        $pendingAppointments = $this->doctorModel->getPendingAppointments($doctor['id_medecin']);
-
-        // Gestion de la recherche
-        $search = isset($_GET['search']) ? $_GET['search'] : '';
+        $search = $_GET['search'] ?? '';
+    
         if (!empty($search)) {
             $patients = $this->doctorModel->searchPatients($search, $doctor['id_medecin']);
+            $pendingAppointments = [];
         } else {
-            // Par défaut, afficher les patients avec des rendez-vous en attente
+            $pendingAppointments = $this->doctorModel->getPendingAppointments($doctor['id_medecin']);
+            
+            // Récupérer les informations complètes des patients
             $patients = [];
             foreach ($pendingAppointments as $appointment) {
-                $patients[] = [
-                    'id_patient' => $appointment['id_patient'],
-                    'nom' => $appointment['patient_nom']
-                ];
+                $patient = $this->doctorModel->getPatientById($appointment['id_patient']);
+                if ($patient) {
+                    $patients[] = $patient;
+                }
             }
             // Supprimer les doublons
             $patients = array_unique($patients, SORT_REGULAR);
         }
-
+    
         require_once __DIR__ . '/../views/pages/doctor/patients.php';
     }
 
