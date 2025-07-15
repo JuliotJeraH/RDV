@@ -1,58 +1,299 @@
+:root {
+    --primary-dark: #003b1e;
+    --primary: #045d39;
+    --primary-light: #0a7b4e;
+    --accent: #257952ac;
+    --background: #013220;
+    --surface: #06462e;
+    --text: #d5fbe3;
+    --hover: #0f8a5a;
+}
+
 body {
-    background-color: #f8f9fa;
+    background: url('../image/fond.png') no-repeat center center fixed;
+    color: var(--text);
+    font-family: 'Segoe UI', sans-serif;
 }
-
-.hero-section {
-    background-color: #e9f5ff;
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.card {
+  
+  
+  .card {
+    background: transparent!important;
+    border-radius: 12px;
+    box-shadow:
+      0 8px 16px rgba(0, 0, 0, 0.2),
+      0 12px 24px rgba(0, 0, 0, 0.15)
+  }
+  
+  .bg-light {
+    background: linear-gradient(to right, var(--primary-light), var(--primary-dark))!important;
+  }
+  
+  h2 {
+    text-shadow: 1px 1px 2px black;
+  }
+  
+  .h-100 {
+    background-color: rgba(7, 85, 34, 0.5)!important;
+    backdrop-filter: blur(10px);
+  }
+  
+  h4 {
+    text-shadow: 1px 1px 2px white;
+  }
+  
+  
+  a {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+  
+  a:hover {
+    color: var(--secondary-color);
+  }
+  
+  .navbar-brand {
+    font-weight: 700;
+  }
+  
+  /* Cartes */
+  .card {
+    border:1px solid rgba(255, 255, 255, 0.3);
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s;
-}
-
-.card:hover {
+    box-shadow: 0 4px 6px rgba(0,0,0,10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  }
+  
+  .card:hover {
     transform: translateY(-5px);
-}
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
 
-.navbar {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  /* Boutons */
+  .btn {
+    font-weight: bold;
+    font-size: large;
+    text-shadow: 1px 1px 2px black;
+    border-radius: 5px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(6, 104, 60, 0.638)
+    
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: white;
+    border-color: white;
+    color: var(--primary-color);
+  }
+  
+  .card-text {
+    color: var(--light-color);
+  }
+  
+  .btn-success {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+  }
+  
+  .btn-danger {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+  }
+  
+  /* Tableaux */
+  .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+  }
+  
+  .thead th {
+    background-color: var(--light-color);
+    border-top: none;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,0.02);
+  }
 
-.table th {
-    background-color: #f1f8ff;
-}
-
-.modal-content {
+  
+  .bg-primary {
+    background-color: rgba(7, 85, 36, 0.327)!important;
+    height: 89px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.9);
+  }
+  
+  .bg-success {
+    background-color: var(--success-color) !important;
+  }
+  
+  .bg-warning {
+    background-color: var(--warning-color) !important;
+  }
+  
+  .bg-danger {
+    background-color: var(--danger-color) !important;
+  }
+  
+  /* Formulaire */
+  .form-control {
+    border-radius: 5px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+  }
+  
+  .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+  }
+  
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 2px black;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    padding-top: 20px;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+    color: white;
+  }
+  
+  .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  .sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 12px 20px;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+  }
+  
+  .sidebar .nav-link:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar .nav-link.active {
+    color: white;
+    border-left: 3px solid var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar .nav-link i {
+    margin-right: 10px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .sidebar {
+      position: static;
+      height: auto;
+    }
+    
+    .sidebar-sticky {
+      height: auto;
+    }
+    
+    main {
+      padding-top: 20px;
+    }
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .card-title, .text-muted{
+    color: white!important;
+  
+  }
+  
+  small.text-muted, label {
+    color: white;
+  }
+  
+  .card-body {
+  
+    color: var(--light-color)!important;
+  }
+  
+  input, textarea {
+    background: rgba(255, 255, 255, 0.2)!important;
+    backdrop-filter: blur(10px)!important;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--primary-color)!important;
+  }
+  
+  .text-warning {
+    color: var(--warning-color) !important;
+    font-weight: bold;
+    font-size: large;
+    text-shadow: 1px 1px 2px black;
+  }
+  
+  
+  .table-responsive {
+    background-color: rgba(255, 255, 255, 0.7);;
+    backdrop-filter: blur(20px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     border-radius: 10px;
-}
-
-.btn-primary {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-}
-
-.btn-primary:hover {
-    background-color: #0b5ed7;
-    border-color: #0a58ca;
-}
-
-.alert {
-    border-radius: 8px;
-}
-
-.form-control, .form-select {
-    border-radius: 8px;
-    padding: 10px;
-}
-
-.input-group .btn {
-    border-radius: 0 8px 8px 0;
-}
-
-.input-group .form-control {
-    border-radius: 8px 0 0 8px;
-}
+  }
+  
+   td, .table-striped{
+    background-color: transparent!important;
+  }
+  
+  .h2 {
+    text-shadow: 1px 1px 2px black;
+  }
+  
+  select {
+    background: rgba(255, 255, 255, 0.3)!important;
+    backdrop-filter: blur(10px);
+  }
+  
+  
