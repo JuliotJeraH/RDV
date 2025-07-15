@@ -7,6 +7,7 @@
     --surface: #06462e;
     --text: #d5fbe3;
     --hover: #0f8a5a;
+    --primary-color: #0f8a5a;
 }
 
 body {
@@ -14,6 +15,10 @@ body {
     color: var(--text);
     font-family: 'Segoe UI', sans-serif;
 }
+
+ .title{
+  font-size: 4rem !important;
+ }
   
   
   .card {
@@ -48,7 +53,7 @@ body {
   }
   
   a:hover {
-    color: var(--secondary-color);
+    color: black;
   }
 
   p {
@@ -70,12 +75,22 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,10);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(7, 85, 36, 0.327)!important;
+    backdrop-filter: blur(20px);
+    
   
   }
   
   .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
+
+  .card li, .card p{
+    list-style: none;
+    padding: 5px 0;
+    color: white !important;
+    text-shadow: 1px 1px 2px black;
   }
 
   
@@ -296,13 +311,23 @@ body {
     background-color: transparent!important;
   }
   
-  .h2 {
-    text-shadow: 1px 1px 2px black;
+  h2 {
+    text-shadow: 1px 1px 2px black !important;
+    font-weight: bolder !important;
   }
   
   select {
     background: rgba(255, 255, 255, 0.3)!important;
     backdrop-filter: blur(10px);
+  }
+
+  footer p {
+    color: rgb(255, 255, 255) !important;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 3rem;
+    text-shadow: 1px 1px 2px black;
+
   }
   
   

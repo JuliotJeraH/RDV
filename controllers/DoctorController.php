@@ -109,7 +109,7 @@ class DoctorController {
                 require_once '../views/pages/doctor/patients.php';
             }
         } else {
-            header('Location: doctor/patients');
+            header('Location: index.php?page=doctor/patients');
         }
     }
 }

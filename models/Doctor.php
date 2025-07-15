@@ -91,5 +91,20 @@ class Doctor {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getAcceptedAppointments($id_medecin) {
+        $conn = $this->db->connect();
+        $query = 'SELECT r.*, p.nom as patient_nom 
+                  FROM Rendez_vous r 
+                  JOIN Patients p ON r.id_patient = p.id_patient 
+                  WHERE r.id_medecin = :id_medecin 
+                  AND r.statut = "accepte"
+                  AND (r.date_rendez_vous >= NOW() OR r.date_rendez_vous IS NULL)
+                  ORDER BY r.date_rendez_vous ASC';
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':id_medecin', $id_medecin);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>
